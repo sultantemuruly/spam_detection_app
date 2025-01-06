@@ -12,7 +12,7 @@ import os
 
 app = FastAPI()
 
-origins = ["http://localhost:3000"]
+origins = ["https://sultantemuruly.github.io/spam_detection_app"]
 
 app.add_middleware(
     CORSMiddleware,
