@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/spam_detection_app/static/css/main.27f7c51b.css",
+    "main.js": "/spam_detection_app/static/js/main.8d7377f9.js",
+    "static/js/488.6d5d2703.chunk.js": "/spam_detection_app/static/js/488.6d5d2703.chunk.js",
+    "index.html": "/spam_detection_app/index.html",
+    "main.27f7c51b.css.map": "/spam_detection_app/static/css/main.27f7c51b.css.map",
+    "main.8d7377f9.js.map": "/spam_detection_app/static/js/main.8d7377f9.js.map",
+    "488.6d5d2703.chunk.js.map": "/spam_detection_app/static/js/488.6d5d2703.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27f7c51b.css",
+    "static/js/main.8d7377f9.js"
+  ]
+}
