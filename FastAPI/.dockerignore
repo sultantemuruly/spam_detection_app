@@ -1,0 +1,35 @@
+# Python cache files
+
+**pycache**/
+_.pyc
+_.pyo
+\*.pyd
+
+# Virtual environments
+
+venv/
+.env/
+
+# Logs
+
+_.log
+_.txt
+
+# Node.js and frontend (if any)
+
+node_modules/
+
+# Docker-specific files
+
+Dockerfile
+docker-compose.yml
+
+# Git
+
+.git/
+.gitignore
+
+# IDE/editor files
+
+.idea/
+.vscode/

@@ -1,11 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 
 import uvicorn
 from joblib import load
 
 from email_schema import EmailSchema
 from text_processing import preprocess_text
+
+import os
 
 app = FastAPI()
 
@@ -27,6 +30,11 @@ model = load(joblib_in)
 @app.get("/")
 def index():
     return {"message": "Spam Detection ML API"}
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+def favicon():
+    return FileResponse("static/favicon.ico")
 
 
 @app.post("/email/predict")

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import api from './api';
+import ClipLoader from "react-spinners/ClipLoader";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
   const [emailText, setEmailText] = useState('');
   const [spamData, setSpamData] = useState({
     spam: "",
@@ -17,6 +19,13 @@ function App() {
     try {
       event.preventDefault();
 
+      setSpamData({
+        spam: '',
+        ham: '',
+      })
+      
+      setIsLoading(true);
+
       const response = await api.post('/email/predict', {"text": emailText});
       console.log(response.data);
 
@@ -24,6 +33,7 @@ function App() {
         spam: Math.round(response.data.Spam * 100).toString(),
         ham: Math.round(response.data.Ham * 100).toString(),
       })
+      setIsLoading(false);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -51,8 +61,17 @@ function App() {
 
           {spamData.spam !== '' ? 
             <div>
-              <div>The probability that the message is spam is {spamData.spam}</div>
-            </div> : null
+              <div>The probability that the message is spam is {spamData.spam} %</div>
+            </div> : 
+            <div className='flex justify-center'>
+              <ClipLoader
+                color={"#0081fd"}
+                loading={isLoading}
+                size={25}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            </div>
           }
           <div className='pt-6 flex justify-center'>
             <button type="submit" className='w-[164px] h-[48px] bg-gray-500 text-white rounded-lg hover:scale-105 hover:bg-blue-600 transition-all duration-100'>Check for Spam</button>
